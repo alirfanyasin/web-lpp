@@ -1,58 +1,156 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏛️ Lapas — Sistem Informasi Lembaga Pemasyarakatan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web berbasis **Laravel 13** untuk manajemen data lembaga pemasyarakatan, meliputi data kunjungan, warga binaan, dan laporan.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Persyaratan
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Pastikan software berikut sudah terinstall di komputermu sebelum memulai:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Software | Versi Minimum | Download |
+|---|---|---|
+| **PHP** | `^8.3` | [php.net](https://www.php.net/downloads) |
+| **Composer** | `^2.x` | [getcomposer.org](https://getcomposer.org/download) |
+| **Node.js** | `^18.x` (LTS) | [nodejs.org](https://nodejs.org) |
+| **NPM** | `^9.x` (ikut Node.js) | — |
+| **Git** | Latest | [git-scm.com](https://git-scm.com/downloads) |
 
-## Learning Laravel
+> **Catatan:** Project ini menggunakan **SQLite** sebagai database secara default, sehingga kamu **tidak perlu** menginstall MySQL atau PostgreSQL.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📥 Clone / Download Project
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Opsi 1 — Clone via Git (Direkomendasikan)
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/alirfanyasin/lapas.git
+cd lapas
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Opsi 2 — Download ZIP
 
-## Contributing
+1. Buka halaman repository di GitHub
+2. Klik tombol **Code → Download ZIP**
+3. Ekstrak file ZIP
+4. Buka terminal dan masuk ke folder hasil ekstrak
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## ⚙️ Setup & Menjalankan Project
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Ikuti langkah-langkah berikut setelah project berhasil di-clone atau di-download.
 
-## Security Vulnerabilities
+### Langkah 1 — Install Dependency PHP
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+composer install
+```
 
-## License
+### Langkah 2 — Buat File Konfigurasi `.env`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+cp .env.example .env
+```
+
+> Untuk Windows (Command Prompt):
+> ```cmd
+> copy .env.example .env
+> ```
+
+### Langkah 3 — Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### Langkah 4 — Setup Database
+
+Project ini menggunakan **SQLite**, jadi hanya perlu membuat file database-nya:
+
+```bash
+# Buat file database SQLite
+touch database/database.sqlite
+```
+
+> Untuk Windows (PowerShell):
+> ```powershell
+> New-Item -ItemType File database/database.sqlite
+> ```
+
+Lalu jalankan migrasi untuk membuat tabel:
+
+```bash
+php artisan migrate
+```
+
+Jika ingin mengisi data awal (seeder):
+
+```bash
+php artisan db:seed
+```
+
+### Langkah 5 — Install Dependency Node.js
+
+```bash
+npm install
+```
+
+### Langkah 6 — Jalankan Development Server
+
+Jalankan semua service sekaligus dengan satu perintah:
+
+```bash
+composer dev
+```
+
+Perintah ini akan menjalankan:
+- **Laravel server** → `http://localhost:8000`
+- **Vite (hot reload)** → untuk asset frontend
+- **Queue worker** → untuk background jobs
+- **Log watcher** → untuk monitoring log
+
+---
+
+## 🌐 Akses Aplikasi
+
+Setelah semua service berjalan, buka browser dan akses:
+
+```
+http://localhost:8000
+```
+
+---
+
+## 🛠️ Perintah Berguna Lainnya
+
+| Perintah | Fungsi |
+|---|---|
+| `php artisan migrate:fresh --seed` | Reset database + isi ulang data |
+| `php artisan route:list` | Lihat semua route yang terdaftar |
+| `php artisan tinker` | Buka REPL interaktif Laravel |
+| `npm run build` | Build asset untuk production |
+| `composer test` | Jalankan semua unit test |
+
+---
+
+## ❓ Troubleshooting
+
+**Error: `No application encryption key has been specified`**
+→ Jalankan `php artisan key:generate`
+
+**Error: `database/database.sqlite does not exist`**
+→ Buat file SQLite-nya: `touch database/database.sqlite` (Linux/Mac) atau `New-Item -ItemType File database/database.sqlite` (Windows PowerShell)
+
+**Error: `npm: command not found`**
+→ Pastikan Node.js sudah terinstall dan coba restart terminal
+
+**CSS/JS tidak tampil dengan benar**
+→ Jalankan `npm run build` atau pastikan `npm run dev` sedang aktif
+
+---
+
+## 📄 Lisensi
+
+Project ini menggunakan lisensi [MIT](https://opensource.org/licenses/MIT).
