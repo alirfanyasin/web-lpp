@@ -568,7 +568,7 @@
             </div>
             <h4 class="font-semibold text-navy mb-2">Konfirmasi & Hadir</h4>
             <p class="text-xs text-mist leading-relaxed">
-              Verfikasi dan hadir sesuai jadwal yang ditentukan.
+              Tunjukkan KTP dan hadir sesuai jadwal yang ditentukan.
             </p>
           </div>
         </div>
