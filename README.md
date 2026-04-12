@@ -111,7 +111,7 @@ npm install
 ### Langkah 7 — Build Asset Frontend
 
 ```bash
-npm run build
+npm run dev
 ```
 
 ### Langkah 8 — Jalankan Server
