@@ -10,7 +10,7 @@ Pastikan software berikut sudah terinstall sebelum memulai:
 
 | Software | Versi Minimum | Keterangan |
 |---|---|---|
-| **Laragon** | Latest | Sudah include PHP, MySQL, dan Apache |
+| **Laragon** | `6.0` | Sudah include PHP, MySQL, dan Apache |
 | **PHP** | `^8.3` | Sudah include di Laragon |
 | **MySQL** | `^8.x` | Sudah include di Laragon |
 | **Composer** | `^2.x` | [getcomposer.org](https://getcomposer.org/download) |
