@@ -16,6 +16,7 @@ Pastikan software berikut sudah terinstall sebelum memulai:
 | **Composer** | `^2.x` | [getcomposer.org](https://getcomposer.org/download) |
 | **Node.js** | `^18.x` (LTS) | [nodejs.org](https://nodejs.org) |
 | **Git** | Latest | [git-scm.com](https://git-scm.com/downloads) |
+| **VS Code** | Latest | [Donwload](https://code.visualstudio.com/download) |
 
 > **Rekomendasi:** Gunakan **Laragon** karena sudah menyertakan PHP dan MySQL dalam satu paket, sehingga proses setup jauh lebih mudah. Download di [laragon.org](https://laragon.org/download).
 
